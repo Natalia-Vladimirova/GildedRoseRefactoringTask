@@ -1,14 +1,12 @@
 ﻿namespace GildedRose.Console
 {
-    public class ConjuredUpdater : IUpdater
+    public class ConjuredUpdater : DefaultUpdater
     {
-        public void Update(Item item)
+        protected override void UpdateQuality(Item item)
         {
             DecreaseQuality(item);
 
-            item.SellIn -= 1;
-
-            if (item.SellIn < 0)
+            if (item.SellIn <= 0)
             {
                 DecreaseQuality(item);
             }

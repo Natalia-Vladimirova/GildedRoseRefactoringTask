@@ -43,10 +43,14 @@
   <ItemGroup>
     <Compile Include="AgedBrieUpdater.cs" />
     <Compile Include="BackstagePassesUpdater.cs" />
+    <Compile Include="ChainHandlers\Handler.cs" />
+    <Compile Include="ChainHandlers\IHandler.cs" />
+    <Compile Include="ChainHandlers\WorkExample.cs" />
     <Compile Include="ConjuredUpdater.cs" />
     <Compile Include="DefaultUpdater.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="ItemInfo.cs" />
+    <Compile Include="IUpdaterProvider.cs" />
+    <Compile Include="UpdaterProvider.cs" />
     <Compile Include="IUpdater.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +60,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

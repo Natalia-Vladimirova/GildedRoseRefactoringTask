@@ -4,14 +4,25 @@
     {
         public void Update(Item item)
         {
+            if (item == null) return;
+
+            UpdateQuality(item);
+            UpdateSellIn(item);
+        }
+
+        protected virtual void UpdateQuality(Item item)
+        {
             DecreaseQuality(item);
 
-            item.SellIn -= 1;
-
-            if (item.SellIn < 0)
+            if (item.SellIn <= 0)
             {
                 DecreaseQuality(item);
             }
+        }
+
+        protected virtual void UpdateSellIn(Item item)
+        {
+            item.SellIn -= 1;
         }
 
         private void DecreaseQuality(Item item)

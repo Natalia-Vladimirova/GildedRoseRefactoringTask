@@ -1,8 +1,8 @@
 ﻿namespace GildedRose.Console
 {
-    public class BackstagePassesUpdater : IUpdater
+    public class BackstagePassesUpdater : DefaultUpdater
     {
-        public void Update(Item item)
+        protected override void UpdateQuality(Item item)
         {
             IncreaseQuality(item);
 
@@ -16,9 +16,7 @@
                 IncreaseQuality(item);
             }
 
-            item.SellIn -= 1;
-
-            DropQualityToZeroIfSellInIsNegative(item);
+            DropQualityToZeroIfSellInIsNonPositive(item);
         }
 
         private void IncreaseQuality(Item item)
@@ -29,9 +27,9 @@
             }
         }
         
-        private void DropQualityToZeroIfSellInIsNegative(Item item)
+        private void DropQualityToZeroIfSellInIsNonPositive(Item item)
         {
-            if (item.SellIn < 0)
+            if (item.SellIn <= 0)
             {
                 item.Quality = 0;
             }
